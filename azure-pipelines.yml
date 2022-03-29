@@ -4,7 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- '*'
+- none
+pr:
+- none
+
+schedules:
+- cron: "0 9 * * Mon-Fri"
+  displayName: M-F 3:00AM Mexico Central Time
+  branches:
+    include:
+    - main
 
 pool:
   vmImage: 'ubuntu-20.04'
